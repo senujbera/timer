@@ -1,48 +1,118 @@
 <!DOCTYPE HTML>
 <html>
-<title>Timer to Christmas</title>
+<title>Timer to New Year</title>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
-  background-color: #FF0000;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+
+  
+  background-image: url('https://wallpaperaccess.com/thumb/401679.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 p {
   text-align: center;
   font-size: 60px;
-  margin-top: 0px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 2; 
+  color: white; 
+}
+
+img {
+  position: absolute; 
+  width: 150px; 
+  height: auto;
+  z-index: 3; 
 }
 </style>
 </head>
 <body>
 
-<p>Days until Christmas</p>
+
+<p>Days until the New Year</p>
 <p id="demo"></p>
 
 <script>
-var countDownDate = new Date("Dec 24, 2024 24:00:00").getTime();
 
-var x = setInterval(function() {
-
+var countDownDate = new Date("Dec 31, 2024 24:00:00").getTime();
+var x = setInterval(function () {
   var now = new Date().getTime();
-    
   var distance = countDownDate - now;
-    
+
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var minutes = Math.floor((distance % (1000 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
+
   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-    
+    + minutes + "m " + seconds + "s ";
+
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "merry christmas love u guys:)";
+    document.getElementById("demo").innerHTML = "heapy neaw yearws guyes :3 <3";
+
+    
+    startBouncingGIFs();
   }
 }, 1000);
+
+
+function startBouncingGIFs() {
+  
+  var gifUrls = [
+    "https://media.giphy.com/media/l3vQZbDGJYElf6eQg/giphy.gif",
+    "https://media.giphy.com/media/3o7TKPdUkkbww9mZsI/giphy.gif",
+    "https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif"
+  ];
+
+  let gifs = [];
+
+  
+  gifUrls.forEach((url) => {
+    let gif = document.createElement("img");
+    gif.src = url;
+    gif.style.left = Math.random() * (window.innerWidth - 150) + "px";
+    gif.style.top = Math.random() * (window.innerHeight - 150) + "px";
+    document.body.appendChild(gif);
+    gifs.push({ gif, dx: 2 + Math.random() * 3, dy: 2 + Math.random() * 3 });
+  });
+
+  
+  function moveGIFs() {
+    gifs.forEach((g) => {
+      let rect = g.gif.getBoundingClientRect();
+
+      
+      if (rect.left + g.dx > window.innerWidth - 150 || rect.left + g.dx < 0) {
+        g.dx *= -1;
+      }
+      
+      if (rect.top + g.dy > window.innerHeight - 150 || rect.top + g.dy < 0) {
+        g.dy *= -1;
+      }
+
+      
+      g.gif.style.left = rect.left + g.dx + "px";
+      g.gif.style.top = rect.top + g.dy + "px";
+    });
+
+    requestAnimationFrame(moveGIFs); 
+  }
+
+  moveGIFs(); 
+}
 </script>
 
 </body>
 </html>
 
+/*this was the most amout of editing iv ever done for this (new years update 2025 ver1)*/
