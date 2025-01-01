@@ -50,7 +50,7 @@ var x = setInterval(function () {
 
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60)) / (1000 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); //what the fuck happend here
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
@@ -70,11 +70,8 @@ function startBouncingGIFs() {
   
   var gifUrls = [
     "https://media.giphy.com/media/l3vQZbDGJYElf6eQg/giphy.gif",
-    "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHNraWV6MThoZ20wYndrNnpkYzJiY2J5NHc1enFscnYyMTZubmRmciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nPViUsClrcsYWbEieR/giphy.gif",
-    "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjFzaThtb2hubDJpM2dzcnZlNjQ5dm91d3J5bmwwZW9yMTE0Z3ZiNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iBAkhzrzpa2PFUEqeZ/giphy.gif",
-    "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTRtdm9sb2EybzJja240dnhpamxtdWV0Zm9qMzY2OXg2Y2RseHVsZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/f2CUyOvUyjYg3j0N7N/giphy.gif",
-    "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDdramQ1ZjBoNmZkYTl5N2QwbHZkdzVnNWozbHFocG9yZ3I4N2E1eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/DmNIxDvdCN41W/giphy.gif",
-    "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNW03aWc0aTdmbWkzdWtmYmJ1aHNzeTFzeTFxN2RtYnhvaXVoMTVwNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUOxf23OGRF34s5Og0/giphy.gif"
+    "https://media.giphy.com/media/3o7TKPdUkkbww9mZsI/giphy.gif",
+    "https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif"
   ];
 
   let gifs = [];
@@ -111,11 +108,9 @@ function startBouncingGIFs() {
     requestAnimationFrame(moveGIFs); 
   }
 
-  moveGIFs(); 
+  moveGIFs(); //ok this is the most amout of code iv done for this only cuz i messed with the math for the minute display and it fucked it up a bit whoopsies :3
 }
 </script>
 
 </body>
 </html>
-
-/*this is the second update from the last (ver2 2025(gifsed))*/
